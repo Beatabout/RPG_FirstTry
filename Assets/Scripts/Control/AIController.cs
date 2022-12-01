@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
+using RPG.Saving;
 using UnityEngine;
 
 namespace RPG.Control
 {
-    public class AIController : MonoBehaviour
+    public class AIController : MonoBehaviour, ISaveable
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTime = 3f;
@@ -24,7 +25,7 @@ namespace RPG.Control
         Mover mover;
         ActionScheduler actionScheduler;
 
-        Vector3 guardPosition;
+        [SerializeField] Vector3 guardPosition;
         float timeSinceReachedWaypoint = 0;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         int currentWaypointIndex = 0;
@@ -35,8 +36,10 @@ namespace RPG.Control
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
-
-            guardPosition = transform.position;
+            if(guardPosition == Vector3.zero){
+                guardPosition = transform.position;
+            }
+            
         }
 
         private void Update()
@@ -116,6 +119,17 @@ namespace RPG.Control
         private void OnDrawGizmosSelected() {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
+        }
+
+        public object CaptureState()
+        {
+            return new SerializableVector3(guardPosition);
+        }
+
+        public void RestoreState(object state)
+        {
+            SerializableVector3 position = (SerializableVector3)state;
+            guardPosition = position.ToVector();
         }
     }
 }
