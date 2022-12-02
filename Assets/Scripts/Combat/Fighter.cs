@@ -8,16 +8,17 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2f;
-        [SerializeField] float weaponDamage = 5f;
         [SerializeField] float timeBetweenAttacks = 2f;
+        [SerializeField] Transform handTransform = null;
+        [SerializeField] Weapon defaultWeapon = null;
+
         Health target;
-        Animator animator;
 
         float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
 
         private void Start() {
-            animator = GetComponent<Animator>();
+            EquipWeapon(defaultWeapon);
         }
 
         private void Update() {
@@ -26,7 +27,7 @@ namespace RPG.Combat
             if(target == null) return;
             if(target.IsDead()) return;
             
-            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < weaponRange; 
+            bool isInRange = Vector3.Distance(transform.position, target.transform.position) < defaultWeapon.WeaponRange; 
                 
             if(!isInRange){
                 GetComponent<Mover>().MoveTo(target.transform.position, 1f);
@@ -35,7 +36,12 @@ namespace RPG.Combat
                 GetComponent<Mover>().Cancel();
                 AttackBehaviour();
             }
+        }
 
+        public void EquipWeapon(Weapon weapon){
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(handTransform, animator);
         }
 
         public bool CanAttack(GameObject combatTarget){
@@ -65,7 +71,7 @@ namespace RPG.Combat
         //Animation Event
         void Hit(){
             if(target == null) return;
-            target.TakeDamage(weaponDamage);
+            target.TakeDamage(currentWeapon.WeaponDamage);
         }
 
         public void Cancel()

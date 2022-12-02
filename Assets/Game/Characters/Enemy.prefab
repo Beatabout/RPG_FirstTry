@@ -28,9 +28,21 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a650ee1a76fe9549b5663eda0e3de79, type: 2}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
       propertyPath: weaponRange
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a650ee1a76fe9549b5663eda0e3de79, type: 2}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 4386553430724230744}
     - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
       propertyPath: timeBetweenAttacks
       value: 0.8
@@ -97,6 +109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+--- !u!4 &4386553430724230744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7345942394725065503, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+  m_PrefabInstance: {fileID: 6418241530574101831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4386553431076495045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7345942396688040834, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
@@ -146,3 +163,4 @@ MonoBehaviour:
   waypointTolerance: 1
   waypointDwellTime: 2
   patrolSpeedFraction: 0.5
+  guardPosition: {x: 0, y: 0, z: 0}

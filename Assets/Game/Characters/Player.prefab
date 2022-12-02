@@ -16,9 +16,33 @@ PrefabInstance:
       value: player
       objectReference: {fileID: 0}
     - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 8615495750301677332}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: swordPrefab
+      value: 
+      objectReference: {fileID: 1617027104405881188, guid: 42a931068ebb04447822674ebd67d5a8, type: 3}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
       propertyPath: weaponRange
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 1617027104405881188, guid: 42a931068ebb04447822674ebd67d5a8, type: 3}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a650ee1a76fe9549b5663eda0e3de79, type: 2}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 8615495750301677332}
+    - target: {fileID: 7163033816760857414, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: weaponOverride
+      value: 
+      objectReference: {fileID: 22100000, guid: ea56c5d0e3636784f9e3a68c6c0579f5, type: 2}
     - target: {fileID: 7345942394736987397, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -108,3 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957cde71c5d0a4d4a8f9dc21927bdd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &8615495750301677332 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7345942394725065503, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+  m_PrefabInstance: {fileID: 1324731247172228107}
+  m_PrefabAsset: {fileID: 0}
