@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
@@ -20,6 +19,7 @@ namespace RPG.Combat
         Weapon currentWeapon = null;
 
         private void Start() {
+
             if(currentWeapon == null){
                 EquipWeapon(defaultWeapon);
             }
@@ -43,14 +43,13 @@ namespace RPG.Combat
         }
 
         public void EquipWeapon(Weapon weapon){
-            if(currentWeapon != null)
-            {
-                currentWeapon.DestroySelf();
-                Debug.Log($"{currentWeapon.name} destroyed!");
-            }
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+        }
+
+        public Health GetTarget(){
+            return target;
         }
 
         public bool CanAttack(GameObject combatTarget){
@@ -81,9 +80,9 @@ namespace RPG.Combat
         void Hit(){
             if(target == null) return;
              if(currentWeapon.HasProjectule()){
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
             } else {
-                target.TakeDamage(currentWeapon.WeaponDamage);
+                target.TakeDamage(gameObject, currentWeapon.WeaponDamage);
             }
         }
         //Animation Event

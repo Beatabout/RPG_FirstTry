@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683585640923856500, guid: 76e53e76455e70c4ab77d76fb24a7b5a, type: 3}
+      propertyPath: characterClass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6930170373260423511, guid: 76e53e76455e70c4ab77d76fb24a7b5a, type: 3}
       propertyPath: chaseDistance
       value: 20
