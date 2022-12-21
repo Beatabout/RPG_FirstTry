@@ -25,20 +25,22 @@ namespace RPG.Control
         ActionScheduler actionScheduler;
 
         [SerializeField] Vector3 guardPosition;
-        float timeSinceReachedWaypoint = 0;
+        float timeSinceReachedWaypoint = Mathf.Infinity;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         int currentWaypointIndex = 0;
 
-        private void Start() {
+        void Awake() {
             player = GameObject.FindWithTag("Player");
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
+        }
+
+        private void Start() {
             if(guardPosition == Vector3.zero){
                 guardPosition = transform.position;
             }
-            
         }
 
         private void Update()

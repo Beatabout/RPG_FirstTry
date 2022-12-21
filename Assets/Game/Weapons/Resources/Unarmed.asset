@@ -15,4 +15,6 @@ MonoBehaviour:
   equippedPrefab: {fileID: 0}
   weaponOverride: {fileID: 0}
   weaponRange: 2.5
-  weaponDamage: 3
+  weaponDamage: 1
+  isRightHanded: 1
+  projectile: {fileID: 0}

@@ -15,11 +15,18 @@ namespace RPG.Attributes
         bool isDead = false;
         
         void Start() {
-            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
             if(health < 0) 
             {
                 health = GetComponent<BaseStats>().GetStat(Stat.Health);
             }
+        }
+
+        void OnEnable() {
+            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
+        }
+
+        void OnDisable() {
+            GetComponent<BaseStats>().onLevelUp -= RegenerateHealth;
         }
 
         void RegenerateHealth(){
@@ -35,7 +42,6 @@ namespace RPG.Attributes
 
             print(gameObject.name + "took damage: " + damage);
             health = Mathf.Max(health - damage, 0);
-            print(gameObject.name + "'s health is: " + health);
             if(health <= 0)
             {
                 Die();

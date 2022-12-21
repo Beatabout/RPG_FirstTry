@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: characterClass
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1868251648483500851, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: shouldUseModifiers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2027570454507467436, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
