@@ -17,11 +17,11 @@ namespace RPG.Combat
         void Update() {
             if(fighter.GetTarget() != null) {
                 Health health = fighter.GetTarget();
-                healthText.text = String.Format("{0:0}%", health.GetPercentage());
+                healthText.text = String.Format("{0:0}/{1:0}", health.GetHealthPoints(), health.GetMaxHealthPoints());
             }
             else
             {
-                healthText.text = "No Target";
+                healthText.text = "N/A";
             }
         }
     }

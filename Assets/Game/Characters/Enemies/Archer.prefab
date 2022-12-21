@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: defaultWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 6162f317c627586438519852dce86d29, type: 2}
+    - target: {fileID: 4213708871130377729, guid: 76e53e76455e70c4ab77d76fb24a7b5a, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4386553430718780366, guid: 76e53e76455e70c4ab77d76fb24a7b5a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
