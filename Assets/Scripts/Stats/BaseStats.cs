@@ -18,7 +18,7 @@ namespace RPG.Stats
         Experience experience;
 
         void Awake() {
-            Experience experience = GetComponent<Experience>();
+            experience = GetComponent<Experience>();
         }
 
         void Start() {
@@ -103,7 +103,6 @@ namespace RPG.Stats
 
         private int CalculateLevel()
         {
-            Experience experience = GetComponent<Experience>();
             if(experience == null) return startingLevel;
 
             float currentXP = experience.GetPoints();
