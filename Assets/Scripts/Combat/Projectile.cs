@@ -49,8 +49,11 @@ namespace RPG.Combat
 
         void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Projectile triggered with" + other.name);
             if(other.GetComponent<Health>() != target) return;
             if(target.IsDead()) return;
+            //Без вимкнення колайдера ворог інколи отримує подвійний урон
+            GetComponent<Collider>().enabled = false;
             target.TakeDamage(instigator, damage);
             projectileSpeed = 0;
             if(hitEffect != null){

@@ -4,34 +4,53 @@ using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float regenerationPercentage = 70;
+        [SerializeField] TakeDamageEvent takeDamage;
+
+        [System.Serializable]
+        public class TakeDamageEvent : UnityEvent<float>
+        {
+        }
 
         float health = -1f;
         bool isDead = false;
+
+        BaseStats baseStats;
+
+        void Awake() {
+            baseStats = GetComponent<BaseStats>();
+        }
         
         void Start() {
-            if(health < 0) 
+            if(health < 0)
             {
-                health = GetComponent<BaseStats>().GetStat(Stat.Health);
+                health = GetMaxHealthPoints();
             }
         }
 
         void OnEnable() {
-            GetComponent<BaseStats>().onLevelUp += RegenerateHealth;
+            baseStats.onLevelUp += RegenerateHealth;
+            baseStats.onLevelUp += UpdateHealthBar;
         }
 
         void OnDisable() {
-            GetComponent<BaseStats>().onLevelUp -= RegenerateHealth;
+            baseStats.onLevelUp -= RegenerateHealth;
+            baseStats.onLevelUp -= UpdateHealthBar;
         }
 
         void RegenerateHealth(){
-            float renegHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
+            float renegHealthPoints = baseStats.GetStat(Stat.Health) * (regenerationPercentage / 100);
             health = Mathf.Max(health, renegHealthPoints);
+        }
+
+        void UpdateHealthBar() {
+            GetComponent<CharacterHealthBar>().UpdateHealthBar();
         }
 
         public bool IsDead(){
@@ -40,33 +59,38 @@ namespace RPG.Attributes
 
         public void TakeDamage(GameObject instigator, float damage){
 
-            print(gameObject.name + "took damage: " + damage);
             health = Mathf.Max(health - damage, 0);
+            GetComponent<CharacterHealthBar>().UpdateHealthBar();
             if(health <= 0)
             {
                 Die();
                 AwardExperience(instigator);
             }
+            takeDamage.Invoke(damage);
         }
 
         private void AwardExperience(GameObject instigator)
         {
             Experience experience =  instigator.GetComponent<Experience>();
             if(experience == null) return;
-            float reward = GetComponent<BaseStats>().GetStat(Stat.ExperienceReward);
+            float reward = baseStats.GetStat(Stat.ExperienceReward);
             experience.GainExprerience(reward);
         }
 
-        public float GetHealthPoints(){
+        public float GetHealthPoints()
+        {
             return health;
         }
 
         public float GetMaxHealthPoints(){
-            return GetComponent<BaseStats>().GetStat(Stat.Health);
+            return baseStats.GetStat(Stat.Health);
         }
 
         public float GetPercentage(){
-            float maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+            if(health < 0 && !isDead){
+                health = GetMaxHealthPoints();
+            }
+            float maxHealth = baseStats.GetStat(Stat.Health);
             return (health / maxHealth) * 100;
         }
 

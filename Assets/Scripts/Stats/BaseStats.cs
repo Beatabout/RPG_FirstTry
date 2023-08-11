@@ -114,11 +114,10 @@ namespace RPG.Stats
                     return level;
                 }
             }
-
             return penultimateLevel + 1;
         }
 
-        public int GetStartingLEvel(){
+        public int GetStartingLevel(){
             return startingLevel;
         }
     }

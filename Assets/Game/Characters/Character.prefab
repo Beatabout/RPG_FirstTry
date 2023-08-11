@@ -336,7 +336,8 @@ GameObject:
   - component: {fileID: 9003683328200632709}
   - component: {fileID: 8482828768059589803}
   - component: {fileID: 8262176173528758245}
-  - component: {fileID: 3474207394613623626}
+  - component: {fileID: 4264882328113321356}
+  - component: {fileID: 4229355130924103775}
   m_Layer: 0
   m_Name: CharacterStatsCanvas
   m_TagString: Untagged
@@ -427,7 +428,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3474207394613623626
+--- !u!114 &4264882328113321356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,11 +437,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6266241774757926198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b38006cce44efb4698f1892a4bc92e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 406cd6df0bbb47f40bbdad88fbf49f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 2070117594221870057}
-  levelText: {fileID: 924644035004274301}
+--- !u!225 &4229355130924103775
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266241774757926198}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &6591288900213006660
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +463,7 @@ GameObject:
   - component: {fileID: 8414679269685071101}
   - component: {fileID: 2070117594221870057}
   m_Layer: 0
-  m_Name: HealthBar
+  m_Name: HealthBarSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,6 +561,7 @@ GameObject:
   - component: {fileID: 3896493731583266953}
   - component: {fileID: 7002681654622585206}
   - component: {fileID: 1868251648483500851}
+  - component: {fileID: 6962504168430205519}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -571,6 +583,7 @@ Transform:
   m_Children:
   - {fileID: 7345942394724962177}
   - {fileID: 1112008207102872365}
+  - {fileID: 5539906748714923329}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -728,6 +741,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5456378654777457162}
+        m_TargetAssemblyTypeName: RPG.UI.DamageText.DamageTextSpawner, Assembly-CSharp
+        m_MethodName: SpawnDamageText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7002681654622585206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,6 +785,21 @@ MonoBehaviour:
   characterClass: 1
   progression: {fileID: 11400000, guid: 8a99b25c6d3c7be4bb35670eac39a1cc, type: 2}
   levelUpVFX: {fileID: 0}
+  shouldUseModifiers: 0
+--- !u!114 &6962504168430205519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345942396688040834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b38006cce44efb4698f1892a4bc92e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 2070117594221870057}
+  levelText: {fileID: 924644035004274301}
 --- !u!1 &8699847025691147430
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +877,79 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &7032630224919570567
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7345942396688040862}
+    m_Modifications:
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025329950317846927, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+      propertyPath: m_Name
+      value: DamageTextSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+--- !u!114 &5456378654777457162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3035453189677191821, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+  m_PrefabInstance: {fileID: 7032630224919570567}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5d0672178aa374f8d6296aac28920f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5539906748714923329 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3276747217753382342, guid: e9eb221b2e9f9724eb0287c45a64c9e7, type: 3}
+  m_PrefabInstance: {fileID: 7032630224919570567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7345942394725395099
 PrefabInstance:
   m_ObjectHideFlags: 0

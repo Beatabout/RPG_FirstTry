@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6501594075016740394, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7002681654622585206, guid: 84360c048edcaed4aa971dfe3b1c768a, type: 3}
       propertyPath: uniqueIdentifier
       value: player
@@ -156,6 +160,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957cde71c5d0a4d4a8f9dc21927bdd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMappings:
+  - type: 0
+    texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+    hotspot: {x: 6, y: 3}
+  - type: 1
+    texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    hotspot: {x: 11, y: 6}
+  - type: 2
+    texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    hotspot: {x: 6, y: 3}
+  - type: 3
+    texture: {fileID: 2800000, guid: e4fac5245b727db42ba0ca0258851b83, type: 3}
+    hotspot: {x: 6, y: 3}
+  - type: 4
+    texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
+    hotspot: {x: 6, y: 3}
+  maxNavMeshProjectionDistance: 1
+  maxNavPathLenght: 40
 --- !u!114 &7401690635067624391
 MonoBehaviour:
   m_ObjectHideFlags: 0
